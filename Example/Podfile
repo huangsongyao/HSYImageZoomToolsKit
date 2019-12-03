@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'HSYImageZoomToolsKit_Example' do
+  pod 'HSYImageZoomToolsKit', :path => '../'
+
+  target 'HSYImageZoomToolsKit_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
