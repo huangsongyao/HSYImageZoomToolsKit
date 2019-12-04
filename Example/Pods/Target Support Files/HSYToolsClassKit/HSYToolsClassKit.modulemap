@@ -1,0 +1,6 @@
+framework module HSYToolsClassKit {
+  umbrella header "HSYToolsClassKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

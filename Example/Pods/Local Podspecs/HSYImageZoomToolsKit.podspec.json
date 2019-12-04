@@ -1,0 +1,41 @@
+{
+  "name": "HSYImageZoomToolsKit",
+  "version": "0.1.0",
+  "summary": "A short description of HSYImageZoomToolsKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/huangsongyao/HSYImageZoomToolsKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "huangsongyao": "317398895@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/huangsongyao/HSYImageZoomToolsKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HSYImageZoomToolsKit/Classes/**/*.{h,m}",
+  "resource_bundles": {
+    "HSYImageZoomToolsKit": [
+      "HSYImageZoomToolsKit/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "HSYMacroKit": [
+
+    ],
+    "HSYMethodsToolsKit": [
+
+    ],
+    "HSYToolsClassKit": [
+
+    ],
+    "Masonry": [
+
+    ]
+  }
+}

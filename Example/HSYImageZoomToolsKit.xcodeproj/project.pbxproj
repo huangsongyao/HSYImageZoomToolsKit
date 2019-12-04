@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		455A883523965E4F00386ED7 /* icon_home_ recharge.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A882E23965E4F00386ED7 /* icon_home_ recharge.png */; };
+		455A883623965E4F00386ED7 /* icon_home_remuneration.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A882F23965E4F00386ED7 /* icon_home_remuneration.png */; };
+		455A883723965E4F00386ED7 /* icon_home_ evection.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A883023965E4F00386ED7 /* icon_home_ evection.png */; };
+		455A883823965E4F00386ED7 /* icon_home_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A883123965E4F00386ED7 /* icon_home_search.png */; };
+		455A883923965E4F00386ED7 /* icon_home_salary_sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A883223965E4F00386ED7 /* icon_home_salary_sign.png */; };
+		455A883A23965E4F00386ED7 /* icon_home_ lease.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A883323965E4F00386ED7 /* icon_home_ lease.png */; };
+		455A883B23965E4F00386ED7 /* icon_home_more.png in Resources */ = {isa = PBXBuildFile; fileRef = 455A883423965E4F00386ED7 /* icon_home_more.png */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,6 +46,13 @@
 /* Begin PBXFileReference section */
 		0FDEF9EBADF13C49E9E4BF62 /* Pods-HSYImageZoomToolsKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSYImageZoomToolsKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-HSYImageZoomToolsKit_Tests/Pods-HSYImageZoomToolsKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		15C2A188C9C7CFD9FCB64806 /* Pods_HSYImageZoomToolsKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HSYImageZoomToolsKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		455A882E23965E4F00386ED7 /* icon_home_ recharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home_ recharge.png"; sourceTree = "<group>"; };
+		455A882F23965E4F00386ED7 /* icon_home_remuneration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home_remuneration.png; sourceTree = "<group>"; };
+		455A883023965E4F00386ED7 /* icon_home_ evection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home_ evection.png"; sourceTree = "<group>"; };
+		455A883123965E4F00386ED7 /* icon_home_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home_search.png; sourceTree = "<group>"; };
+		455A883223965E4F00386ED7 /* icon_home_salary_sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home_salary_sign.png; sourceTree = "<group>"; };
+		455A883323965E4F00386ED7 /* icon_home_ lease.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_home_ lease.png"; sourceTree = "<group>"; };
+		455A883423965E4F00386ED7 /* icon_home_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_home_more.png; sourceTree = "<group>"; };
 		4D26A214B7BFD6F84D64D5E6 /* Pods-HSYImageZoomToolsKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSYImageZoomToolsKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-HSYImageZoomToolsKit_Example/Pods-HSYImageZoomToolsKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* HSYImageZoomToolsKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSYImageZoomToolsKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,11 +74,11 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		862BC6E299FBCF39D02DD10A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		862BC6E299FBCF39D02DD10A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		94365A128EFD151A7041E861 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		94365A128EFD151A7041E861 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9C6298AD8DC09AAE7D210482 /* Pods-HSYImageZoomToolsKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSYImageZoomToolsKit_Example.release.xcconfig"; path = "Target Support Files/Pods-HSYImageZoomToolsKit_Example/Pods-HSYImageZoomToolsKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C7FFD814CA1824667FBA97FC /* HSYImageZoomToolsKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HSYImageZoomToolsKit.podspec; path = ../HSYImageZoomToolsKit.podspec; sourceTree = "<group>"; };
+		C7FFD814CA1824667FBA97FC /* HSYImageZoomToolsKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HSYImageZoomToolsKit.podspec; path = ../HSYImageZoomToolsKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CC90EAC96BCEEA24A644117D /* Pods-HSYImageZoomToolsKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSYImageZoomToolsKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-HSYImageZoomToolsKit_Tests/Pods-HSYImageZoomToolsKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E3550818484F58755CAE0DA3 /* Pods_HSYImageZoomToolsKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HSYImageZoomToolsKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +109,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		455A882D23965E4F00386ED7 /* imgs */ = {
+			isa = PBXGroup;
+			children = (
+				455A882E23965E4F00386ED7 /* icon_home_ recharge.png */,
+				455A882F23965E4F00386ED7 /* icon_home_remuneration.png */,
+				455A883023965E4F00386ED7 /* icon_home_ evection.png */,
+				455A883123965E4F00386ED7 /* icon_home_search.png */,
+				455A883223965E4F00386ED7 /* icon_home_salary_sign.png */,
+				455A883323965E4F00386ED7 /* icon_home_ lease.png */,
+				455A883423965E4F00386ED7 /* icon_home_more.png */,
+			);
+			path = imgs;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +160,7 @@
 		6003F593195388D20070C39A /* Example for HSYImageZoomToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				455A882D23965E4F00386ED7 /* imgs */,
 				6003F59C195388D20070C39A /* HSYAppDelegate.h */,
 				6003F59D195388D20070C39A /* HSYAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -193,7 +222,6 @@
 				0FDEF9EBADF13C49E9E4BF62 /* Pods-HSYImageZoomToolsKit_Tests.debug.xcconfig */,
 				CC90EAC96BCEEA24A644117D /* Pods-HSYImageZoomToolsKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -246,7 +274,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HSY;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "317398895@qq.com";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -259,6 +287,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -278,10 +307,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455A883623965E4F00386ED7 /* icon_home_remuneration.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				455A883923965E4F00386ED7 /* icon_home_salary_sign.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				455A883B23965E4F00386ED7 /* icon_home_more.png in Resources */,
+				455A883823965E4F00386ED7 /* icon_home_search.png in Resources */,
+				455A883A23965E4F00386ED7 /* icon_home_ lease.png in Resources */,
+				455A883523965E4F00386ED7 /* icon_home_ recharge.png in Resources */,
+				455A883723965E4F00386ED7 /* icon_home_ evection.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,10 +339,22 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HSYImageZoomToolsKit_Tests/Pods-HSYImageZoomToolsKit_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HSYMethodsToolsKit/HSYMethodsToolsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HSYToolsClassKit/HSYToolsClassKit.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSnapshotTestCase/FBSnapshotTestCase.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HSYMethodsToolsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HSYToolsClassKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,10 +414,22 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HSYImageZoomToolsKit_Example/Pods-HSYImageZoomToolsKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/HSYImageZoomToolsKit/HSYImageZoomToolsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HSYMethodsToolsKit/HSYMethodsToolsKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HSYToolsClassKit/HSYToolsClassKit.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HSYImageZoomToolsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HSYMethodsToolsKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HSYToolsClassKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -439,23 +499,37 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -479,22 +553,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

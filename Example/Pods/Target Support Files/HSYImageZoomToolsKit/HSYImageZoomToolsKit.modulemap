@@ -1,0 +1,6 @@
+framework module HSYImageZoomToolsKit {
+  umbrella header "HSYImageZoomToolsKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

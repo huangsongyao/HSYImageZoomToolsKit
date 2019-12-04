@@ -1,0 +1,6 @@
+framework module Pods_HSYImageZoomToolsKit_Tests {
+  umbrella header "Pods-HSYImageZoomToolsKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

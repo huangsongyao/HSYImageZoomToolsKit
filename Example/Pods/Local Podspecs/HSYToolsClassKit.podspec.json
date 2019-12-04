@@ -1,0 +1,33 @@
+{
+  "name": "HSYToolsClassKit",
+  "version": "0.1.0",
+  "summary": "A short description of HSYToolsClassKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/huangsongyao/HSYToolsClassKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "317398895@qq.com": "huangsongyao"
+  },
+  "source": {
+    "git": "https://github.com/huangsongyao/HSYToolsClassKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HSYToolsClassKit/Classes/**/*.{h,m}",
+  "dependencies": {
+    "ReactiveObjC": [
+
+    ],
+    "HSYMacroKit": [
+
+    ],
+    "HSYMethodsToolsKit": [
+
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - HSYImageZoomToolsKit (0.1.0):
+    - HSYMacroKit
+    - HSYMethodsToolsKit
+    - HSYToolsClassKit
+    - Masonry
+  - HSYMacroKit (0.1.4)
+  - HSYMethodsToolsKit (0.1.6):
+    - HSYMacroKit
+    - JSONModel
+    - Masonry
+    - ReactiveObjC
+    - SDWebImage
+  - HSYToolsClassKit (0.1.0):
+    - HSYMacroKit
+    - HSYMethodsToolsKit
+    - ReactiveObjC
+  - JSONModel (1.8.0)
+  - Masonry (1.1.0)
+  - ReactiveObjC (3.1.1)
+  - SDWebImage (5.3.1):
+    - SDWebImage/Core (= 5.3.1)
+  - SDWebImage/Core (5.3.1)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - HSYImageZoomToolsKit (from `../`)
+  - HSYMacroKit (from `https://github.com/huangsongyao/HSYMacroKit.git`)
+  - HSYMethodsToolsKit (from `https://github.com/huangsongyao/HSYMethodsToolsKit.git`)
+  - HSYToolsClassKit (from `https://github.com/huangsongyao/HSYToolsClassKit.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FBSnapshotTestCase
+    - JSONModel
+    - Masonry
+    - ReactiveObjC
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  HSYImageZoomToolsKit:
+    :path: "../"
+  HSYMacroKit:
+    :git: https://github.com/huangsongyao/HSYMacroKit.git
+  HSYMethodsToolsKit:
+    :git: https://github.com/huangsongyao/HSYMethodsToolsKit.git
+  HSYToolsClassKit:
+    :git: https://github.com/huangsongyao/HSYToolsClassKit.git
+
+CHECKOUT OPTIONS:
+  HSYMacroKit:
+    :commit: 16c2690a2f4315f0ddf1417bb11db33ffb36ac8b
+    :git: https://github.com/huangsongyao/HSYMacroKit.git
+  HSYMethodsToolsKit:
+    :commit: 3ffc061a1380a62266764dc6b044a9431206aa72
+    :git: https://github.com/huangsongyao/HSYMethodsToolsKit.git
+  HSYToolsClassKit:
+    :commit: 84fab0d9bcddc998c94e70ca2d1d08f49a1a70b7
+    :git: https://github.com/huangsongyao/HSYToolsClassKit.git
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  HSYImageZoomToolsKit: d321e74f121b24b68030e1a700ef0e12aa4c0c05
+  HSYMacroKit: 382477fb48caa2919542868a73ccc473bb331997
+  HSYMethodsToolsKit: a62273be7eb39600f8b98c432ed401cf259e2533
+  HSYToolsClassKit: 073d79d378e6d2a72861bf84bd954982a3f87b28
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
+
+PODFILE CHECKSUM: d5a55ca867f25d8d2b48976ccab72be683c21634
+
+COCOAPODS: 1.7.5
