@@ -19,11 +19,6 @@
     "ios": "8.0"
   },
   "source_files": "HSYImageZoomToolsKit/Classes/**/*.{h,m}",
-  "resource_bundles": {
-    "HSYImageZoomToolsKit": [
-      "HSYImageZoomToolsKit/Assets/*.png"
-    ]
-  },
   "dependencies": {
     "HSYMacroKit": [
 
