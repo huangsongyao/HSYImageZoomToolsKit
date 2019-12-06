@@ -122,9 +122,7 @@
             UIScrollView *scrollView = [[UIScrollView alloc] init];
             scrollView.x = x;
             scrollView.size = self.scrollView.size;
-            thisImageView.width = self.width;
-            [thisImageView hsy_zoomScaleWidths:thisImageView.width scales:imageView.image.size];
-            thisImageView.y = (self.height - thisImageView.height)/2.0f;
+            [thisImageView hsy_scaleCentryCGRect];
             scrollView.delegate = self;
             [scrollView hsy_setZoomScaleSection];
             [scrollView addSubview:thisImageView];
@@ -169,7 +167,7 @@
 
 + (NSTimeInterval)hsy_durations
 {
-    return 3.35f;
+    return 0.35f;
 }
 
 - (void)hsy_showTools
@@ -214,6 +212,7 @@
     UIImageView *topImageView = self.hsy_scrollViewTopImage;
     self.currentImageView.image = topImageView.image;
     self.currentImageView.highlightedImage = topImageView.highlightedImage;
+    self.currentImageView.frame = topImageView.frame;
     self.currentImageView.hidden = NO;
     self.scrollView.hidden = YES;
 }

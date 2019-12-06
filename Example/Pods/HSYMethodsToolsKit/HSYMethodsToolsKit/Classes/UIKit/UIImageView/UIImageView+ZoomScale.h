@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param scales 宽高比
  */
 - (void)hsy_zoomScaleWidths:(CGFloat)widths scales:(CGSize)scales;
++ (CGFloat)hsy_zoomScaleWidths:(CGFloat)widths scales:(CGSize)scales;
 
 /**
  根据scales的宽高比，以及显示宽度heights，动态计算出显示的高度widths
@@ -26,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param scales 宽高比
  */
 - (void)hsy_zoomScaleHeights:(CGFloat)heights scales:(CGSize)scales;
++ (CGFloat)hsy_zoomScaleHeights:(CGFloat)heights scales:(CGSize)scales;
 
 @end
 

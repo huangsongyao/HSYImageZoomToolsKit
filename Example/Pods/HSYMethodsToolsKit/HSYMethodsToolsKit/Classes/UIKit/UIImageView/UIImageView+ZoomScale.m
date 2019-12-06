@@ -12,15 +12,26 @@
 
 - (void)hsy_zoomScaleWidths:(CGFloat)widths scales:(CGSize)scales
 {
-    CGFloat heights = widths * scales.height / scales.width;
+    CGFloat heights = [UIImageView hsy_zoomScaleWidths:widths scales:scales];
     self.height = ceil(heights);
 }
 
 - (void)hsy_zoomScaleHeights:(CGFloat)heights scales:(CGSize)scales
 {
-    CGFloat widths = heights * scales.width / scales.height;
+    CGFloat widths = [UIImageView hsy_zoomScaleHeights:heights scales:scales];
     self.width = ceil(widths);
 }
 
++ (CGFloat)hsy_zoomScaleWidths:(CGFloat)widths scales:(CGSize)scales
+{
+    CGFloat heights = widths * scales.height / scales.width;
+    return heights;
+}
+
++ (CGFloat)hsy_zoomScaleHeights:(CGFloat)heights scales:(CGSize)scales
+{
+    CGFloat widths = heights * scales.width / scales.height;
+    return widths;
+}
 
 @end
