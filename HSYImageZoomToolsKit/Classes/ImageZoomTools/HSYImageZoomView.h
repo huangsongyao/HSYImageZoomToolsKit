@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSYImageZoomView : UIView
 
+//左上角的翻页当前页码
+@property (nonatomic, strong, readonly) UILabel *pagesLabel;
+
 /**
  初始化
 

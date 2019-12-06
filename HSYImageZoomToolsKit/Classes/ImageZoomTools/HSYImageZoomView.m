@@ -13,15 +13,21 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import "UIImageView+ZoomScales.h"
 #import <HSYMethodsToolsKit/UIScrollView+Pages.h>
+#import <HSYMethodsToolsKit/UIApplication+AppDelegates.h>
 #import <HSYMethodsToolsKit/UIImageView+ZoomScale.h>
+#import <Masonry/Masonry.h>
+#import <HSYMacroKit/HSYToolsMacro.h>
+#import "UIScrollView+Zoom.h"
 
 @interface HSYImageZoomView () <UIScrollViewDelegate> {
     @private NSArray<NSValue *> *_imageCGRects;
+    @private UILabel *_pagesLabel;
 }
 
 @property (nonatomic, strong) UIImageView *effectImageView;
 @property (nonatomic, strong) UIImageView *currentImageView;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @property (nonatomic, copy, readonly) HSYImageZoomArgument *zoomArguments;
 @property (nonatomic, strong, readonly) UIView *currentMoveImageSuperView;
 
@@ -33,51 +39,66 @@
 {
     UIWindow *window = UIApplication.hsy_keyWindows;
     if (self = [super initWithSize:window.size]) {
+        //初始状态
         self.backgroundColor = UIColor.clearColor;
-        
         self->_zoomArguments = zoomArguments;
-        self->_currentMoveImageSuperView = zoomArguments.superview;
-        self.currentImageView = [[UIImageView alloc] initWithImage:zoomArguments.hsy_currentImageView.image highlightedImage:zoomArguments.hsy_currentImageView.image];
-        self.currentImageView.frame = [self hsy_toMoveCGRect:zoomArguments.hsy_currentZoomChildArgument.hsy_zoomImageViewOrigin];
+        //初始ui
+        self.effectImageView.alpha = 0.0f;
+        self->_currentMoveImageSuperView = self.zoomArguments.superview;
+        self.currentImageView = [[UIImageView alloc] initWithImage:self.zoomArguments.hsy_currentImageView.image highlightedImage:self.zoomArguments.hsy_currentImageView.image];
+        self.currentImageView.frame = [self hsy_toMoveCGRect:self.zoomArguments.hsy_currentZoomChildArgument.hsy_zoomImageViewOrigin];
         [self addSubview:self.currentImageView];
-        
-        @weakify(self);
-        [HSYGestureTools hsy_tapGesture:self touchTapGestureBlock:^(UIGestureRecognizer * _Nonnull gesture, UIView * _Nonnull touchView, CGPoint location) {
-            @strongify(self);
-            [self hsy_removeTools];
-        }];
-        [HSYGestureTools hsy_doubleTapGesture:self touchTapGestureBlock:^(UIGestureRecognizer * _Nonnull gesture, UIView * _Nonnull touchView, CGPoint location) {
-            
-        }];
+        self.pagesLabel.text = [self.zoomArguments hsy_toCurrentPages:(self.zoomArguments.selectedIndex.integerValue + 1)];
+        //添加至window层遮罩
         [window addSubview:self];
     }
     return self;
 }
 
-#pragma mark - Lazy
+#pragma mark - Methods
 
 - (NSInteger)hsy_currentIndex
 {
     return self.zoomArguments.selectedIndex.integerValue;
 }
 
-- (UIImageView *)hsy_scrollViewTopImage
+- (NSInteger)hsy_currentPage
 {
-    return (UIImageView *)self.scrollView.subviews[self.scrollView.hsy_currentPage];
+    NSInteger index = MAX(self.scrollView.hsy_currentPage, 0);
+    index = MIN(index, (self.scrollView.subviews.count - 1));
+    return index;
 }
 
+- (UIImageView *)hsy_scrollViewTopImage
+{
+    return (UIImageView *)self.scrollView.subviews[self.hsy_currentPage].subviews.firstObject;
+}
+
+#pragma mark - Lazy
+
+- (UITapGestureRecognizer *)tapGesture
+{
+    if (!_tapGesture) {
+        @weakify(self);
+        _tapGesture = [HSYGestureTools hsy_tapGesture:self touchTapGestureBlock:^(UIGestureRecognizer * _Nonnull gesture, UIView * _Nonnull touchView, CGPoint location) {
+            @strongify(self);
+            [self hsy_removeTools];
+        }];
+    }
+    return _tapGesture;
+}
 - (UIImageView *)effectImageView
 {
     if (!_effectImageView) {
-        UIImage *backgroundImage = [UIImage hsy_imageWithFillColor:UIColor.clearColor];
+        UIImage *backgroundImage = [UIImage hsy_imageWithFillColor:self.zoomArguments.blurEffectColor];
         _effectImageView = [[UIImageView alloc] initWithImage:backgroundImage highlightedImage:backgroundImage];
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        _effectImageView.frame = self.bounds;
+        [self addSubview:_effectImageView];
+        
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:self.zoomArguments.hsy_blurEffectStyle];
         UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         visualEffectView.frame = _effectImageView.bounds;
-        _effectImageView.alpha = 0.0f;
-        _effectImageView.frame = self.bounds;
         [_effectImageView addSubview:visualEffectView];
-        [self addSubview:_effectImageView];
     }
     return _effectImageView;
 }
@@ -88,17 +109,32 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.hidden = YES;
         _scrollView.bounces = NO;
+        for (UIView *view in _scrollView.subviews) {
+            [view removeFromSuperview];
+        }
         CGFloat x = 0.0f;
         for (HSYImageZoomChildArgument *argument in self.zoomArguments.arguments) {
             UIImageView *imageView = argument.hsy_zoomImageView;
             UIImageView *thisImageView = [[UIImageView alloc] initWithImage:imageView.image highlightedImage:imageView.highlightedImage];
-            thisImageView.x = x;
-            thisImageView.width = _scrollView.width;
+            UIScrollView *scrollView = [[UIScrollView alloc] init];
+            scrollView.x = x;
+            scrollView.size = self.scrollView.size;
+            thisImageView.width = self.width;
             [thisImageView hsy_zoomScaleWidths:thisImageView.width scales:imageView.image.size];
             thisImageView.y = (self.height - thisImageView.height)/2.0f;
-            [_scrollView addSubview:thisImageView];
-            x = thisImageView.right;
+            scrollView.delegate = self;
+            [scrollView hsy_setZoomScaleSection];
+            [scrollView addSubview:thisImageView];
+            @weakify(self);
+            [self.tapGesture requireGestureRecognizerToFail:[HSYGestureTools hsy_doubleTapGesture:scrollView touchTapGestureBlock:^(UIGestureRecognizer * _Nonnull gesture, UIView * _Nonnull touchView, CGPoint location) {
+                @strongify(self);
+                [scrollView hsy_setZoomInRect:self.center];
+            }]];
+            [_scrollView addSubview:scrollView];
+            x = scrollView.right;
         }
         [_scrollView setContentSize:CGSizeMake(x, 0.0f)];
         [_scrollView hsy_setXPage:self.hsy_currentIndex];
@@ -107,11 +143,33 @@
     return _scrollView;
 }
 
+- (UILabel *)pagesLabel
+{
+    if (!_pagesLabel) {
+        _pagesLabel = [[UILabel alloc] init];
+        _pagesLabel.textColor = UIColor.blackColor;
+        _pagesLabel.font = [UIFont systemFontOfSize:17.0f];
+        _pagesLabel.alpha = 0.0f;
+        [self addSubview:_pagesLabel];
+        [self bringSubviewToFront:_pagesLabel];
+        CGFloat offset = 20.0f;
+        @weakify(self);
+        [_pagesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            @strongify(self);
+            make.top.equalTo(self.mas_top).offset((HSY_IS_iPhoneX ? (UIApplication.hsy_statusBarHeight + offset) : offset));
+            make.left.equalTo(self.mas_left).offset(offset);
+            make.height.equalTo(@(self->_pagesLabel.font.lineHeight));
+            make.width.equalTo(@(self.width/2.0f));
+        }];
+    }
+    return _pagesLabel;
+}
+
 #pragma mark - Animation
 
 + (NSTimeInterval)hsy_durations
 {
-    return 0.35f;
+    return 3.35f;
 }
 
 - (void)hsy_showTools
@@ -121,6 +179,7 @@
         [UIView animateWithDuration:HSYImageZoomView.hsy_durations animations:^{
             @strongify(self);
             self.effectImageView.alpha = 1.0f;
+            self.pagesLabel.alpha = 1.0f;
             [self.currentImageView hsy_scaleCentryCGRect];
         } completion:^(BOOL finished) {
             @strongify(self);
@@ -138,7 +197,8 @@
         [UIView animateWithDuration:HSYImageZoomView.hsy_durations animations:^{
             @strongify(self);
             self.effectImageView.alpha = 0.0f;
-            CGRect rect = self.zoomArguments.arguments[self.scrollView.hsy_currentPage].hsy_zoomImageViewOrigin;
+            self.pagesLabel.alpha = 0.0f;
+            CGRect rect = self.zoomArguments.arguments[self.hsy_currentPage].hsy_zoomImageViewOrigin;
             self.currentImageView.frame = [self hsy_fromMoveCGRect:rect];
         } completion:^(BOOL finished) {
             @strongify(self);
@@ -164,6 +224,7 @@
 {
     UIWindow *window = UIApplication.hsy_keyWindows;
     CGRect toCGRect = [self.currentMoveImageSuperView convertRect:rect toView:window];
+    NSLog(@"toCGRect => %@", NSStringFromCGRect(toCGRect));
     return toCGRect;
 }
 
@@ -174,8 +235,47 @@
     return fromCGRect;
 }
 
+#pragma mark - Dealloc
+
+- (void)dealloc
+{
+    NSLog(@"Execute Destructor");
+}
+
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([scrollView isEqual:self.scrollView]) {
+        self.pagesLabel.text = [self.zoomArguments hsy_toCurrentPages:(scrollView.hsy_currentPage + 1)];
+    }
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return self.hsy_scrollViewTopImage;
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+{
+    if (![scrollView isEqual:self.scrollView]) {
+        [scrollView setZoomScale:scale animated:YES];
+    }
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    if ([scrollView isEqual:self.scrollView]) {
+        return;
+    }
+    if (scrollView.zoomScale > 1) {
+        UIImageView *imageView = self.hsy_scrollViewTopImage;
+        CGFloat offsetX = (scrollView.width > scrollView.hsy_contentSizeWidth) ? (scrollView.width - scrollView.hsy_contentSizeWidth) * 0.5 : 0.0;
+        CGFloat offsetY = (scrollView.height > scrollView.hsy_contentSizeHeight) ?
+        (scrollView.height - scrollView.hsy_contentSizeHeight) * 0.5 : 0.0;
+        imageView.center = CGPointMake(scrollView.hsy_contentSizeWidth * 0.5 + offsetX, scrollView.hsy_contentSizeHeight * 0.5 + offsetY);
+    }
+}
 
 @end
 

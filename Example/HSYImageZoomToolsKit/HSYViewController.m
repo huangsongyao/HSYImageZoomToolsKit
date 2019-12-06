@@ -10,6 +10,9 @@
 #import <HSYMethodsToolsKit/UIView+Frame.h>
 #import <HSYToolsClassKit/HSYGestureTools.h>
 #import "HSYImageZoomView.h"
+#import <HSYMacroKit/HSYToolsMacro.h>
+#import <HSYMethodsToolsKit/UINavigationBar+NavigationItem.h>
+#import "HSYCollectionViewController.h"
 
 @interface HSYViewController ()
 
@@ -20,7 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSArray *imgNames = @[@"icon_home_search", @"icon_home_salary_sign", @"icon_home_remuneration", @"icon_home_more", @"icon_home_ recharge", @"icon_home_ lease", @"icon_home_ evection"];
+    NSArray *imgNames = @[@"WechatIMG34.jpeg", @"WechatIMG35.jpeg", @"WechatIMG36.jpeg"];
     CGSize size = CGSizeMake(40.0, 40.0f);
     CGFloat x = 0.0f;
     NSMutableArray *imageViews = [NSMutableArray arrayWithCapacity:imgNames.count];
@@ -47,6 +50,10 @@
         }];
     }
     
+    self.navigationItem.leftBarButtonItems = [UINavigationBar hsy_titleNavigationItems:@[@{@{@(2121) : [UIFont systemFontOfSize:15]} : @{@"list" : HSY_RGB(51,51,51)}}] leftEdgeInsets:0.0 subscribeNext:^(UIButton * _Nonnull button, NSInteger tag) {
+        HSYCollectionViewController *vc = [[HSYCollectionViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

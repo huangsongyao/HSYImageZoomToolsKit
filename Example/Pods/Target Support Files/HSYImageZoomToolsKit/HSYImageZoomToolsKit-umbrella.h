@@ -11,6 +11,7 @@
 #endif
 
 #import "UIImageView+ZoomScales.h"
+#import "UIScrollView+Zoom.h"
 #import "HSYImageZoomArgument.h"
 #import "HSYImageZoomView.h"
 
