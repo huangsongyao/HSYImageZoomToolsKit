@@ -291,6 +291,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "317398895@qq.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = MXEAV3WBEM;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -619,6 +622,7 @@
 			baseConfigurationReference = 4D26A214B7BFD6F84D64D5E6 /* Pods-HSYImageZoomToolsKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MXEAV3WBEM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HSYImageZoomToolsKit/HSYImageZoomToolsKit-Prefix.pch";
 				INFOPLIST_FILE = "HSYImageZoomToolsKit/HSYImageZoomToolsKit-Info.plist";
@@ -635,6 +639,7 @@
 			baseConfigurationReference = 9C6298AD8DC09AAE7D210482 /* Pods-HSYImageZoomToolsKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MXEAV3WBEM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HSYImageZoomToolsKit/HSYImageZoomToolsKit-Prefix.pch";
 				INFOPLIST_FILE = "HSYImageZoomToolsKit/HSYImageZoomToolsKit-Info.plist";

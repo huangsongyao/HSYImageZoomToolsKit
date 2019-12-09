@@ -7,25 +7,42 @@
 
 #import "UIScrollView+Zoom.h"
 #import <HSYMethodsToolsKit/UIView+Frame.h>
+#import <HSYMacroKit/HSYToolsMacro.h>
+#import <HSYMethodsToolsKit/NSObject+Property.h>
+#import "UIImageView+ZoomScales.h"
+
+static NSString *kHSYImageZoomToolsZoomStatusForKey = @"HSYImageZoomToolsZoomStatusForKey";
 
 @implementation UIScrollView (Zoom)
 
-- (CGRect)hsy_zoomRectForScale:(CGFloat)scale withCenter:(CGPoint)center
+#pragma mark - Property
+
+- (void)setHsy_zoomInStatus:(NSNumber *)hsy_zoomInStatus
 {
-    CGFloat widths = self.width / scale;
-    CGFloat heights = self.height / scale;
-    CGFloat x = center.x - (widths / 2.0);
-    CGFloat y = center.y - (heights / 2.0);
-    CGRect zoomRect = CGRectMake(x, y, widths, heights);
-    return zoomRect;
+    [self hsy_setProperty:hsy_zoomInStatus forKey:kHSYImageZoomToolsZoomStatusForKey objcAssociationPolicy:kHSYMethodsToolsKitObjcAssociationPolicyNonatomicStrong];
 }
 
-- (void)hsy_setZoomInRect:(CGPoint)center
+- (NSNumber *)hsy_zoomInStatus
 {
-    CGFloat newScale = self.zoomScale * self.class.maxZoomScales;
+    return [self hsy_getPropertyForKey:kHSYImageZoomToolsZoomStatusForKey];
+}
+
+#pragma mark - Methods
+
+- (void)hsy_setZoomOutRect:(CGPoint)center
+{
+    if (self.hsy_zoomInStatus.boolValue) {
+        [self hsy_setZoomRect:center];
+    }
+}
+
+- (void)hsy_setZoomRect:(CGPoint)center
+{
+    BOOL isZoomIn = self.hsy_zoomInStatus.boolValue;
+    CGFloat newScale = (!isZoomIn ? self.class.maxZoomScales : self.class.defaultZoomScales);
     [self setZoomScale:newScale animated:YES];
-//    CGRect zoomCGRect = [self hsy_zoomRectForScale:newScale withCenter:center];
-//    [self zoomToRect:zoomCGRect animated:YES];
+    self.hsy_zoomInStatus = @(!self.hsy_zoomInStatus.boolValue);
+    NSLog(@"self.hsy_zoomInStatus => %@", self.hsy_zoomInStatus);
 }
 
 - (void)hsy_setZoomScaleSection
@@ -43,7 +60,12 @@
 
 + (CGFloat)maxZoomScales
 {
-    return 1.5f;
+    return 2.5f;
+}
+
++ (CGFloat)defaultZoomScales
+{
+    return 1.0f;
 }
 
 @end

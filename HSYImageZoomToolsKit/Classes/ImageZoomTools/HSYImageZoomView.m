@@ -69,9 +69,14 @@
     return index;
 }
 
-- (UIImageView *)hsy_scrollViewTopImage
+- (UIImageView *)hsy_mainScrollViewTopImage
 {
-    return (UIImageView *)self.scrollView.subviews[self.hsy_currentPage].subviews.firstObject;
+    return (UIImageView *)self.hsy_mainScrollViewTopScrollView.subviews.firstObject;
+}
+
+- (UIScrollView *)hsy_mainScrollViewTopScrollView
+{
+    return (UIScrollView *)self.scrollView.subviews[self.hsy_currentPage];
 }
 
 #pragma mark - Lazy
@@ -122,14 +127,14 @@
             UIScrollView *scrollView = [[UIScrollView alloc] init];
             scrollView.x = x;
             scrollView.size = self.scrollView.size;
-            [thisImageView hsy_scaleCentryCGRect];
             scrollView.delegate = self;
             [scrollView hsy_setZoomScaleSection];
+            [thisImageView hsy_scaleCentryCGRect];
             [scrollView addSubview:thisImageView];
             @weakify(self);
             [self.tapGesture requireGestureRecognizerToFail:[HSYGestureTools hsy_doubleTapGesture:scrollView touchTapGestureBlock:^(UIGestureRecognizer * _Nonnull gesture, UIView * _Nonnull touchView, CGPoint location) {
                 @strongify(self);
-                [scrollView hsy_setZoomInRect:self.center];
+                [scrollView hsy_setZoomRect:self.center];
             }]];
             [_scrollView addSubview:scrollView];
             x = scrollView.right;
@@ -209,10 +214,11 @@
 
 - (void)updateCurrentImageStatus
 {
-    UIImageView *topImageView = self.hsy_scrollViewTopImage;
+    UIImageView *topImageView = self.hsy_mainScrollViewTopImage;
     self.currentImageView.image = topImageView.image;
     self.currentImageView.highlightedImage = topImageView.highlightedImage;
-    self.currentImageView.frame = topImageView.frame;
+    self.currentImageView.transform = topImageView.transform;
+    self.currentImageView.frame = [self.hsy_mainScrollViewTopScrollView convertRect:topImageView.frame toView:self];
     self.currentImageView.hidden = NO;
     self.scrollView.hidden = YES;
 }
@@ -250,16 +256,31 @@
     }
 }
 
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    @weakify(self);
+//    if ([scrollView isEqual:self.scrollView]) {
+//        [[RACScheduler mainThreadScheduler] schedule:^{
+//            @strongify(self);
+//            for (UIScrollView *subScrollView in scrollView.subviews) {
+//                if ([subScrollView isKindOfClass:[UIScrollView class]]) {
+//                    [subScrollView hsy_setZoomOutRect:self.center];
+//                }
+//            }
+//        }];
+//    }
+//}
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    return self.hsy_scrollViewTopImage;
+    //即将被放缩的视图层
+    return self.hsy_mainScrollViewTopImage;
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
-    if (![scrollView isEqual:self.scrollView]) {
-        [scrollView setZoomScale:scale animated:YES];
-    }
+    //放缩结束
+    if (![scrollView isEqual:self.scrollView]) {}
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
@@ -267,13 +288,11 @@
     if ([scrollView isEqual:self.scrollView]) {
         return;
     }
-    if (scrollView.zoomScale > 1) {
-        UIImageView *imageView = self.hsy_scrollViewTopImage;
-        CGFloat offsetX = (scrollView.width > scrollView.hsy_contentSizeWidth) ? (scrollView.width - scrollView.hsy_contentSizeWidth) * 0.5 : 0.0;
-        CGFloat offsetY = (scrollView.height > scrollView.hsy_contentSizeHeight) ?
-        (scrollView.height - scrollView.hsy_contentSizeHeight) * 0.5 : 0.0;
-        imageView.center = CGPointMake(scrollView.hsy_contentSizeWidth * 0.5 + offsetX, scrollView.hsy_contentSizeHeight * 0.5 + offsetY);
-    }
+    //放缩过程监听，动态修改放大或者缩小后的图片的位置
+    UIImageView *imageView = self.hsy_mainScrollViewTopImage;
+    CGFloat offsetX = (scrollView.width > scrollView.hsy_contentSizeWidth) ? ((scrollView.width - scrollView.hsy_contentSizeWidth) * 0.5) : 0.0;
+    CGFloat offsetY = (scrollView.height > scrollView.hsy_contentSizeHeight) ? ((scrollView.height - scrollView.hsy_contentSizeHeight) * 0.5) : 0.0;
+    imageView.center = CGPointMake(scrollView.hsy_contentSizeWidth * 0.5 + offsetX, scrollView.hsy_contentSizeHeight * 0.5 + offsetY);
 }
 
 @end
